@@ -17,9 +17,11 @@ object_name = "Rowing AI Caster"
 
 # yolo 실행 
 def run_yolo(input_video_url):
+
+    os.makedirs('./video/out', exist_ok=True)
     
     # YOLO 모델 지정 
-    model = YOLO(f'./weights/{object_name}.pt')
+    model = YOLO(f'./weights/yolov8n.pt')
     results = model(input_video_url)
 
     cap = cv2.VideoCapture(input_video_url)
@@ -62,7 +64,7 @@ with gr.Blocks() as demo:
     with gr.Row():
         with gr.Column():
             markdown = gr.Markdown(f"# {object_name}")
-            input1 = gr.Textbox(label = "Video URL") # Video URL 넣기 
+            input1 = gr.Textbox(label = "Video URL", value="http://evc.re.kr:20096/www/rowing.mp4") # Video URL 넣기 
             btn1 = gr.Button("Run", size="sm")
         with gr.Column():
             output1 = gr.Video(autoplay=True) # 원본 비디오 재생 
