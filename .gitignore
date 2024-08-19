@@ -1,0 +1,14 @@
+# ignore test codes
+test.py
+test.ipynb
+
+# ignore log dir & files
+runs/
+output.log
+test.log
+out.log
+*.csv
+
+# ignore input | output datas
+*.mp4
+video/

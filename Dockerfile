@@ -20,3 +20,5 @@ RUN pip install --upgrade pip
 RUN pip3 install torch torchvision torchaudio
 RUN pip install ultralytics
 RUN pip install gradio
+
+ENTRYPOINT ["python3", "app.py", "--server_port", "8776"]
